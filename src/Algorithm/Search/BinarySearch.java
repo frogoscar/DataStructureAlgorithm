@@ -1,6 +1,7 @@
 package Algorithm.Search;
 
 public class BinarySearch {
+    // Time complexity : O(logN)
     static int binarySearch(int[] inputArray, int value) {
         int left = 0;
         int right = inputArray.length - 1;

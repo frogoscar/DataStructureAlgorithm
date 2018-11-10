@@ -2,10 +2,15 @@ package Algorithm.Sorting;
 
 public class SelectionSort {
 
-    // Time complexity : O(n^2)
+    // Best    : O(n^2)
+    // Average : O(n^2)
+    // Worst   : O(n^2)
     static void sort(int[] nums) {
         int N = nums.length;
-        // One by one move boundary of unsorted subarray
+        if (N <= 1) {
+            return;
+        }
+        // One by one move boundary of unsorted sub array
         for (int i = 0; i < N - 1; i++) {
             // Find the minimum element in unsorted array
             int minIdx = i;

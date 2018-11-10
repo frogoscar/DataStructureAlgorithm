@@ -1,7 +1,6 @@
 package DataStructure;
 
 public class BinarySearchTree {
-
     Node root;
 
     static class Node {
@@ -55,7 +54,6 @@ public class BinarySearchTree {
         tree.root = tree.insert(tree.root, 6);
 
         int value = 1;
-
         System.out.println(value + (tree.search(tree.root, value) ? " is " : " is NOT ")
                 + "in this tree");
     }

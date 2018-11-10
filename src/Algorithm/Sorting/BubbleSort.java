@@ -2,17 +2,29 @@ package Algorithm.Sorting;
 
 public class BubbleSort {
 
-    // Time complexity : O(n^2)
+    // Best    : O(n)
+    // Average : O(n^2)
+    // Worst   : O(n^2)
     static void sort(int[] nums) {
         int N = nums.length;
+        if (N <= 1) {
+            return;
+        }
         int temp;
+        // Optimized version using a boolean swapped
+        boolean swapped;
         for (int i = 0; i < N - 1; i++) {
+            swapped = false;
             for (int j = 0; j < N - i - 1; j++) {
                 if (nums[j] > nums[j + 1]) {
                     temp = nums[j];
                     nums[j] = nums[j + 1];
                     nums[j + 1] = temp;
+                    swapped = true;
                 }
+            }
+            if (!swapped) {
+                break;
             }
         }
     }
