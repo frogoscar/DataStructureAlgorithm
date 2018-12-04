@@ -2,18 +2,17 @@ import java.util.*;
 
 public class Test {
 
-    static long gcd(long m, long n) {
-        while (n != 0) {
-            long rem = m % n;
-            m = n;
-            n = rem;
+    static <T> void print(T[][] array) {
+        for (T[] i : array) {
+            for (T j : i) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
         }
-        return m;
     }
 
     public static void main(String[] args) {
-        long m = 60;
-        long n = 40;
-        System.out.println("GCD of " + m + " and " + n + " is " + gcd(m, n));
+        String[][] names = {{"Sam", "Smith"}, {"Oscar", "Frog"}, {"Lily", "Happy", "Momo"}};
+        print(names);
     }
 }

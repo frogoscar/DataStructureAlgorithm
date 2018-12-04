@@ -7,7 +7,8 @@ public class BinarySearch {
         int right = inputArray.length - 1;
         int middle;
         while (left <= right) {
-            middle = (left + right) / 2;
+            // This is more efficient than middle = (left + right) / 2;
+            middle = left + (right - left) / 2;
             if (inputArray[middle] > value) {
                 right = middle - 1;
             } else if (inputArray[middle] < value) {

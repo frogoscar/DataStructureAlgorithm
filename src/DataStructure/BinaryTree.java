@@ -1,5 +1,7 @@
 package DataStructure;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Queue;
 import java.util.LinkedList;
 
@@ -52,6 +54,31 @@ public class BinaryTree {
         }
     }
 
+    static List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            List<Integer> list = new ArrayList<>();
+            int levelSize = queue.size();
+            for (int i = 1; i <= levelSize; i++) {
+                Node node = queue.poll();
+                list.add(node.data);
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            result.add(list);
+        }
+        return result;
+    }
+
     // Pre-Order Traversal
     void preOrder(Node node) {
         if (node == null) {
@@ -92,23 +119,30 @@ public class BinaryTree {
         tree.root.left.right = new Node(5);
         tree.root.left.left.left = new Node(6);
 
-        System.out.println("BFT of Tree : ");
+        System.out.println("BFT (Level Order) of Tree : ");
         tree.BFT(tree.root);
+        System.out.println();
         System.out.println();
 
         System.out.println("PreOrder of Tree : ");
         tree.preOrder(tree.root);
         System.out.println();
+        System.out.println();
 
         System.out.println("InOrder of Tree : ");
         tree.inOrder(tree.root);
+        System.out.println();
         System.out.println();
 
         System.out.println("PostOrder of Tree : ");
         tree.postOrder(tree.root);
         System.out.println();
+        System.out.println();
 
-        System.out.println("Root's height is " + tree.getHeight(tree.root));
-        System.out.println("Root's left's height is " + tree.getHeight(tree.root.left));
+        System.out.println("Root's height is " + tree.getHeight(tree.root) + "\n");
+        System.out.println("Root's left's height is " + tree.getHeight(tree.root.left) + "\n");
+
+        System.out.println("Beautiful Level Order of Tree : ");
+        System.out.println(levelOrder(tree.root));
     }
 }
