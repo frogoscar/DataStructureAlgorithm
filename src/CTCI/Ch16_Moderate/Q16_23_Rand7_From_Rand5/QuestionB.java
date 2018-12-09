@@ -21,7 +21,7 @@ public class QuestionB {
 	}
 
 	public static void main(String[] args) {
-		/* Test: call rand7 many times and inspect the results. */
+		/* Main: call rand7 many times and inspect the results. */
 		int[] arr = new int[7];
 		int test_size = 1000000;
 		for(int k = 0; k < test_size; k++){

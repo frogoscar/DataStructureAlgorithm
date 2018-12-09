@@ -105,7 +105,7 @@ public class Question {
 		return null;
 	}
 
-	// Test harness.
+	// Main harness.
 	public static void main(String[] args) {
 		Question dict = new Question(AssortedMethods.getListOfWords());
 		Rectangle rect = dict.maxRectangle();

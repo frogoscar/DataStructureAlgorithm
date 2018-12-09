@@ -18,7 +18,7 @@ public class Question {
 		
 		Dummy[] dummies = {bob, jim, alex, tim, maxwell, john, julie, christy, tim2};
 		
-		/* Test: Insert Elements. */
+		/* Main: Insert Elements. */
 		Hasher<String, Dummy> hash = new Hasher<String, Dummy>(3);
 		for (Dummy d : dummies) {
 			System.out.println(hash.put(d.getName(), d));
@@ -26,7 +26,7 @@ public class Question {
 		
 		hash.printTable();
 		
-		/* Test: Recall */
+		/* Main: Recall */
 		for (Dummy d : dummies) {
 			String name = d.getName();
 			Dummy dummy = hash.get(name);
