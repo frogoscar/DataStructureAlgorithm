@@ -1,0 +1,28 @@
+package DSAAJ.Graph;
+
+public class BellmanFord {
+    /* // Pseudo code for BellmanFord’s algorithm (Basic)
+    void weightedNegative(Vertex s) {
+        Queue<Vertex> q = new Queue<>();
+        for each Vertex v {
+            v.dist = INFINITY;
+        }
+        s.dist = 0;
+        q.enqueue(s);
+        while (!q.isEmpty) {
+            Vertex v = q.dequeue();
+            for each Vertex w adjacent to v {
+                int cvw = cost of edge from v to w;
+                if (v.dist + cvw < w.dist) {
+                    // Update w
+                    w.dist = v.dist + cvw;
+                    w.path = v;
+                    if (w is not already in q) {
+                        q.enqueue(w);
+                    }
+                }
+            }
+        }
+    }
+     */
+}
