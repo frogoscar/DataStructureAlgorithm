@@ -1,4 +1,4 @@
-package DataStructure;
+package DataStructure.Stack;
 
 // Array implementation of stack
 class ArrayStack {

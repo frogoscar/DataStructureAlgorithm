@@ -1,4 +1,4 @@
-package Concept.DivideConquer;
+package Paradigm.DivideConquer;
 
 public class SquareRootOfTwo {
 

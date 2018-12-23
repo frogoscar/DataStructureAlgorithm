@@ -1,8 +1,8 @@
-package DataStructure;
+package DataStructure.LinkedList;
 
 import java.util.Stack;
 
-public class LinkedList {
+public class MyLinkedList {
     private Node head;
 
     static class Node {
@@ -151,7 +151,7 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList lList = new LinkedList();
+        MyLinkedList lList = new MyLinkedList();
 
         // Insert 6.  So linked list becomes 6->NUll
         lList.insertAtTail(6);

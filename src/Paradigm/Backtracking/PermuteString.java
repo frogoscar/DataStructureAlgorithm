@@ -1,7 +1,6 @@
-package Concept.Backtracking;
+package Paradigm.Backtracking;
 
 public class PermuteString {
-
     static void permuteHelper(String s, String chosen) {
         if (s.isEmpty()) {
             System.out.println(chosen);

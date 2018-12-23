@@ -1,4 +1,4 @@
-package DataStructure;
+package DataStructure.Queue;
 
 import java.util.Iterator;
 import java.util.LinkedList;

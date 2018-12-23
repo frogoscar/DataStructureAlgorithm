@@ -1,4 +1,4 @@
-package DataStructure;
+package DataStructure.Queue;
 
 public class CircularQueue<T> {
     private T[] items;

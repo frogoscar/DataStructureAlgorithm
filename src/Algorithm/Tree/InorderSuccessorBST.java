@@ -1,7 +1,6 @@
 package Algorithm.Tree;
 
 public class InorderSuccessorBST {
-
     class Node {
         int data;
         Node left;

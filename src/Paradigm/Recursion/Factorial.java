@@ -1,4 +1,4 @@
-package Concept.Recursion;
+package Paradigm.Recursion;
 
 public class Factorial {
 
