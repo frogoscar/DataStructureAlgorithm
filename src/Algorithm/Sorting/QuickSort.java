@@ -59,15 +59,15 @@ class QuickSort {
         }
     }
 
-    static void printArray(int arr[]) {
+    static void printArray(int[] arr) {
         for (int i : arr) {
             System.out.print(i + " ");
         }
         System.out.println();
     }
 
-    public static void main(String args[]) {
-        int arr[] = {10, 7, 8, 9, 15, 1, 5, 2};
+    public static void main(String[] args) {
+        int[] arr = {10, 7, 8, 9, 15, 1, 5, 2};
         int n = arr.length;
 
         System.out.println("Original array");
@@ -76,7 +76,7 @@ class QuickSort {
         QuickSort ob = new QuickSort();
         ob.sort(arr, 0, n - 1);
 
-        System.out.println("Sorted array");
+        System.out.println("\nSorted array");
         printArray(arr);
     }
 }

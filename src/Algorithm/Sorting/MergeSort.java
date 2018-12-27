@@ -59,7 +59,7 @@ class MergeSort {
     void sort(int arr[], int l, int r) {
         if (l < r) {
             // Find the middle point
-            int m = (l + r) / 2;
+            int m = l + (r - l) / 2;
 
             // Sort first and second halves
             sort(arr, l, m);
@@ -70,15 +70,15 @@ class MergeSort {
         }
     }
 
-    static void printArray(int arr[]) {
+    static void printArray(int[] arr) {
         for (int i : arr) {
             System.out.print(i + " ");
         }
         System.out.println();
     }
 
-    public static void main(String args[]) {
-        int arr[] = {8, 12, 11, 13, 5, 6, 7, 1};
+    public static void main(String[] args) {
+        int[] arr = {8, 12, 11, 13, 5, 6, 7, 1};
 
         System.out.println("Given Array");
         printArray(arr);
