@@ -64,8 +64,8 @@ public class BinarySearch {
         int value7 = 12;
 
         System.out.println(value6 + " index in array : "
-                + binarySearchRecursive(array, value6, 0, array.length));
+                + binarySearchRecursive(array, value6, 0, array.length - 1));
         System.out.println(value7 + " index in array : "
-                + binarySearchRecursive(array, value7, 0, array.length));
+                + binarySearchRecursive(array, value7, 0, array.length - 1));
     }
 }
