@@ -1,5 +1,6 @@
 package Paradigm.Backtracking;
 
+// This code can be improved, see Permutations.java
 public class PermuteString {
     static void permuteHelper(String s, String chosen) {
         if (s.isEmpty()) {
