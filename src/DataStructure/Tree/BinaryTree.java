@@ -1,9 +1,6 @@
 package DataStructure.Tree;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.*;
 
 public class BinaryTree {
     Node root;
@@ -79,7 +76,7 @@ public class BinaryTree {
         return result;
     }
 
-    // Pre-Order Traversal
+    // Pre-Order Traversal (Recursively)
     void preOrder(Node node) {
         if (node == null) {
             return;
@@ -87,6 +84,27 @@ public class BinaryTree {
         System.out.print(node.data + " ");
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    // Pre-Order Traversal (Iteratively)
+    List<Integer> preorderTraversal(Node root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.empty()) {
+            Node node = stack.pop();
+            res.add(node.data);
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+        return res;
     }
 
     // In-Order Traversal
@@ -99,7 +117,26 @@ public class BinaryTree {
         inOrder(node.right);
     }
 
-    // In-Order Traversal
+    // In-Order Traversal (Iteratively) : A bit difficult
+    List<Integer> inorderTraversal(Node root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Stack<Node> stack = new Stack<>();
+        while (root != null || !stack.empty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            res.add(root.data);
+            root = root.right;
+        }
+        return res;
+    }
+
+    // Post-Order Traversal
     void postOrder(Node node) {
         if (node == null) {
             return;
@@ -107,6 +144,27 @@ public class BinaryTree {
         postOrder(node.left);
         postOrder(node.right);
         System.out.print(node.data + " ");
+    }
+
+    // Post-Order Traversal (Iteratively)
+    List<Integer> postorderTraversal(Node root) {
+        LinkedList<Integer> res = new LinkedList<>();  // It is a Deque
+        if (root == null) {
+            return res;
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.empty()) {
+            Node node = stack.pop();
+            res.addFirst(node.data);   // Trick : Add at the head
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+        return res;
     }
 
     public static void main(String[] args) {
@@ -142,7 +200,16 @@ public class BinaryTree {
         System.out.println("Root's height is " + tree.getHeight(tree.root) + "\n");
         System.out.println("Root's left's height is " + tree.getHeight(tree.root.left) + "\n");
 
-        System.out.println("Beautiful Level Order of Tree : ");
+        System.out.println("Beautiful Level Order (BFS) of Tree : ");
         System.out.println(levelOrder(tree.root));
+
+        System.out.println("\nIterative PreOrder of Tree : ");
+        System.out.println(tree.preorderTraversal(tree.root));
+
+        System.out.println("\nIterative InOrder of Tree : ");
+        System.out.println(tree.inorderTraversal(tree.root));
+
+        System.out.println("\nIterative PostOrder of Tree : ");
+        System.out.println(tree.postorderTraversal(tree.root));
     }
 }

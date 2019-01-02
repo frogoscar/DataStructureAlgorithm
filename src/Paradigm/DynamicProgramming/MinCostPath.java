@@ -12,7 +12,7 @@ right and diagonally lower cells from a given cell, i.e.,
 from a given cell (i, j), cells (i+1, j), (i, j+1) and
 (i+1, j+1) can be traversed. You may assume that all
 costs are positive integers.
- */
+*/
 public class MinCostPath {
 
     static int minCost(int[][] grid) {

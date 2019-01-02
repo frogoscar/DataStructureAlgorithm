@@ -41,7 +41,7 @@ public class PairSum {
 
     public static void main(String[] args) {
         int[] a = {10, 20, 30, 40, 50, 60};
-        int val = 200;
+        int val = 70;
         for (int i : a) {
             System.out.print(i + " ");
         }

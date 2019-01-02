@@ -100,7 +100,6 @@ public class CountInversions {
         return inv_count;
     }
 
-    // Driver method to test the above function
     public static void main(String[] args) {
         int arr[] = new int[] { 1, 20, 6, 4, 5 };
         System.out.println("Number of inversions are " + mergeSort(arr));
