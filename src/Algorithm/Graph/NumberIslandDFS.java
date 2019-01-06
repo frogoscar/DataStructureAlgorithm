@@ -59,12 +59,45 @@ public class NumberIslandDFS {
         return count;
     }
 
+    // Simpler solution using also DFS
+    static int numIslands(int[][] grid) {
+        int res = 0;
+        // Iterating through given grid to find a '1'
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 1) {
+                    res++;
+                    // Start a group and visit all members of this group using DFS
+                    dfs(grid, i, j);
+                }
+            }
+        }
+        return res;
+    }
+
+    static void dfs(int[][] grid, int x, int y) {
+        // If out of bounds or at a cell with '0', simply stop and return | end the dfs
+        if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] != 1) {
+            return;
+        }
+        // Destroy visited cells so they will not be re-visited
+        grid[x][y] = 0;
+        // Recursively DFS on neighbours
+        dfs(grid, x - 1, y);
+        dfs(grid, x, y - 1);
+        dfs(grid, x, y + 1);
+        dfs(grid, x + 1, y);
+    }
+
     public static void main(String[] args) {
         int M[][] = new int[][]{{1, 1, 0, 0, 0},
                                 {0, 1, 0, 0, 1},
                                 {1, 0, 0, 1, 1},
                                 {0, 0, 0, 0, 0},
                                 {1, 0, 1, 0, 1}};
-        System.out.println("Number of islands is: "+ countIslands(M));
+
+        System.out.println("Number of islands using DFS is: "+ countIslands(M));
+
+        System.out.println("\nNumber of islands using simpler DFS is : "+ numIslands(M));
     }
 }

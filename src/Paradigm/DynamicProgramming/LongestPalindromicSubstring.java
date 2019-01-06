@@ -1,6 +1,7 @@
 package Paradigm.DynamicProgramming;
 
-// if the given string is “forgeeksskeegfor”, the output should be “geeksskeeg”
+// If the given string is “forgeeksskeegfor”,
+// the output should be “geeksskeeg”
 public class LongestPalindromicSubstring {
     static String lps(String s) {
         if (s.length() == 0) {

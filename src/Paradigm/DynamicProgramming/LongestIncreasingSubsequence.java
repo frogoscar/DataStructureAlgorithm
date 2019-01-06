@@ -3,7 +3,7 @@ package Paradigm.DynamicProgramming;
 import java.util.Arrays;
 
 // LIS means Longest Increasing Subsequence
-public class LIS {
+public class LongestIncreasingSubsequence {
 
     // Time: O(n^2); Space: O(n)
     static int lengthOfLIS(int[] nums) {

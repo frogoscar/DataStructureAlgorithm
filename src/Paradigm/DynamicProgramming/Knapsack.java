@@ -29,18 +29,19 @@ public class Knapsack {
     }
 
     // Using Dynamic Programming (Bottom Up)
-    // Time : O(n * W)
+    // Time  : O(n * W)
+    // Space : O(n * W)
     static int knapsackDP(int W, int[] wt, int[] val, int n) {
         int[][] dp = new int[n + 1][W + 1];
 
         for (int i = 0; i <= n; i++) {
-            for (int w = 0; w <= W; w++) {
-                if (i == 0 || w == 0) {
-                    dp[i][w] = 0;
-                } else if (wt[i - 1] > w) {
-                    dp[i][w] = dp[i - 1][w];
+            for (int j = 0; j <= W; j++) {
+                if (i == 0 || j == 0) {
+                    dp[i][j] = 0;
+                } else if (wt[i - 1] > j) {
+                    dp[i][j] = dp[i - 1][j];
                 } else {
-                    dp[i][w] = Math.max(dp[i - 1][w], dp[i - 1][w - wt[i - 1]] + val[i - 1]);
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - wt[i - 1]] + val[i - 1]);
                 }
             }
         }
@@ -48,13 +49,30 @@ public class Knapsack {
         return dp[n][W];
     }
 
+    // Time  : O(n * W)
+    // Space : O(W)
+    static int knapsackDPSimple(int W, int[] wt, int[] val, int n) {
+        int[] dp = new int[W + 1];
+        for (int i = 1; i <= n; i++) {
+            for (int j = W; j >= 0; j--) {
+                dp[j] = wt[i - 1] > j ? dp[j] : Math.max(dp[j], dp[j - wt[i - 1]] + val[i - 1]);
+            }
+        }
+        return dp[W];
+    }
+
+
     public static void main(String[] args) {
         int[] wt = {10, 20, 30};
         int[] val = {60, 100, 200};
         int W = 50;
         int n = wt.length;
 
-        System.out.println("The max value with naive solution is : " + knapsackNaive(W, wt, val, n));
-        System.out.println("The max value with DP solution is : " + knapsackDP(W, wt, val, n));
+        System.out.println("The max value with naive solution is : "
+                + knapsackNaive(W, wt, val, n));
+        System.out.println("The max value with DP solution is : "
+                + knapsackDP(W, wt, val, n));
+        System.out.println("The max value with simple DP solution is : "
+                + knapsackDPSimple(W, wt, val, n));
     }
 }

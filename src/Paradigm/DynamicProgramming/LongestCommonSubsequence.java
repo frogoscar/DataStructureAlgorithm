@@ -1,7 +1,7 @@
 package Paradigm.DynamicProgramming;
 
 // Longest Common Subsequence
-public class LCS {
+public class LongestCommonSubsequence {
     static int lcsLength(String s1, String s2) {
         int n1 = s1.length();
         int n2 = s2.length();
