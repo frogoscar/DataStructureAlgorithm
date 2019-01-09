@@ -37,15 +37,15 @@ public class EditDistance {
                 // possibilities and find the minimum
                 else {
                     dp[i][j] = 1 + Math.min(dp[i][j - 1],  // Insert
-                            Math.min(dp[i - 1][j],  // Remove
-                                    dp[i - 1][j - 1])); // Replace
+                            Math.min(dp[i - 1][j],         // Remove
+                                    dp[i - 1][j - 1]));    // Replace
                 }
             }
         }
         return dp[m][n];
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         String word1 = "horse";
         String word2 = "ros";
         System.out.println("Edit distance of " + word1 + " and " + word2 +

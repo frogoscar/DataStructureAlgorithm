@@ -1,7 +1,6 @@
 package Algorithm.Sorting;
 
 public class CountingSort {
-
     static void sort(int[] nums, int n) {
         int[] arr = new int[n];
         for (int i : nums) {
@@ -23,6 +22,5 @@ public class CountingSort {
         for (int i : arr) {
             System.out.print(i);
         }
-
     }
 }

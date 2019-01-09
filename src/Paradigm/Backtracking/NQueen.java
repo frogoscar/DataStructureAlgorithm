@@ -65,7 +65,7 @@ public class NQueen {
                 board[i][col] = 1;
 
                 // Make result true if any placement is possible
-                res = solveNQUtil(board, col + 1) || res;
+                res = solveNQUtil(board, col + 1);
 
                 // If placing queen in board[i][col]
                 // doesn't lead to a solution then

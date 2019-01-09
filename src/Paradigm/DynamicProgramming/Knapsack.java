@@ -7,7 +7,6 @@ package Paradigm.DynamicProgramming;
 // with n items respectively.
 // You cannot break an item, either pick the complete item, or don’t pick it (0-1 property)
 public class Knapsack {
-
     // Recursive solution, not efficient
     // Time : O(2^n) where n is the number of items
     static int knapsackNaive(int W, int[] wt, int[] val, int n) {
@@ -60,7 +59,6 @@ public class Knapsack {
         }
         return dp[W];
     }
-
 
     public static void main(String[] args) {
         int[] wt = {10, 20, 30};
