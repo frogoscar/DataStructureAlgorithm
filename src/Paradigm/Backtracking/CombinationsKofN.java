@@ -16,14 +16,13 @@ import java.util.List;
 //  [1,4],
 // ]
 public class CombinationsKofN {
-
     static List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> res = new ArrayList<>();
-        combine(res, new ArrayList<>(), 1, n, k);
+        backtrack(res, new ArrayList<>(), 1, n, k);
         return res;
     }
 
-    static void combine(List<List<Integer>> res, List<Integer> comb, int start, int n, int k) {
+    static void backtrack(List<List<Integer>> res, List<Integer> comb, int start, int n, int k) {
         if (k == 0) {
             res.add(new ArrayList<>(comb));
             return;
@@ -31,7 +30,7 @@ public class CombinationsKofN {
 
         for (int i = start; i <= n; i++) {
             comb.add(i);
-            combine(res, comb, i + 1, n, k - 1);
+            backtrack(res, comb, i + 1, n, k - 1);
             comb.remove(comb.size() - 1);
         }
     }

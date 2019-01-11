@@ -1,8 +1,6 @@
 package DataStructure.Graph;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 // This class represents a directed graph using adjacency list representation
 public class Graph {
@@ -124,9 +122,10 @@ public class Graph {
         stack.push(s);
     }
 
-    // The function to do Topological Sort. It uses
-    // recursive topologicalSortUtil()
-    // Time complexity : O(V+E); Space complexity : O(V)
+    // Topological Sort using DFS
+    // It uses recursive topologicalSortUtil()
+    // Time complexity  : O(V+E)
+    // Space complexity : O(V)
     void topologicalSort() {
         Stack stack = new Stack();
         boolean[] visited = new boolean[v];
@@ -144,6 +143,7 @@ public class Graph {
         }
     }
 
+    // Print all Topological Sort Using InDegree (Kahn's Algorithm)
     void allTopologicalSortsUtil(boolean[] visited, int[] inDegree, ArrayList<Integer> stack) {
         // To indicate whether all topological are found or not
         boolean flag = false;
@@ -195,6 +195,65 @@ public class Graph {
         ArrayList<Integer> stack = new ArrayList<>();
 
         allTopologicalSortsUtil(visited, inDegree, stack);
+    }
+
+    // Topological Sort Using InDegree (Kahn's Algorithm)
+    public void topologicalSortUsingInDegree() {
+        // Create a array to store indegrees of all
+        // vertices. Initialize all indegrees as 0.
+        int[] inDegree = new int[v];
+
+        // Traverse adjacency lists to fill indegrees of
+        // vertices. This step takes O(V+E) time
+        for (int i = 0; i < v; i++) {
+            for (int node : adj[i]) {
+                inDegree[node]++;
+            }
+        }
+
+        // Create a queue and enqueue all vertices with indegree 0
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < v; i++) {
+            if (inDegree[i] == 0) {
+                q.add(i);
+            }
+        }
+
+        // Initialize count of visited vertices
+        int cnt = 0;
+
+        // Create a vector to store result (A topological
+        // ordering of the vertices)
+        List<Integer> topOrder = new ArrayList<>();
+        while (!q.isEmpty()) {
+            // Extract front of queue (or perform dequeue)
+            // and add it to topological order
+            int u = q.poll();
+            topOrder.add(u);
+
+            // Iterate through all its neighbouring nodes
+            // of dequeued node u and decrease their in-degree
+            // by 1
+            for (int node : adj[u]) {
+                // If in-degree becomes zero, add it to queue
+                if (--inDegree[node] == 0) {
+                    q.add(node);
+                }
+
+            }
+            cnt++;
+        }
+
+        // Check if there was a cycle
+        if (cnt != v) {
+            System.out.println("There exists a cycle in the graph");
+            return;
+        }
+
+        // Print topological order
+        for (int i : topOrder) {
+            System.out.print(i + " -> ");
+        }
     }
 
     // Determine if there is a path between vertex s and d using BFS
@@ -309,16 +368,23 @@ public class Graph {
         dag.addEdge(4, 1);
         dag.addEdge(2, 3);
         dag.addEdge(3, 1);
+
         System.out.println("\n\nFollowing is a Topological " +
-                "sort of the given graph");
+                "sort using DFS of the given graph");
         dag.topologicalSort();
+
         System.out.println("\n\nFollowing is All Topological sorts " +
-                "of the given graph");
+                "using InDegree of the given graph");
         dag.allTopologicalSorts();
+
+        System.out.println("\nFollowing is a Topological " +
+                "sort using InDegree of the given graph");
+        dag.topologicalSortUsingInDegree();
+
         int s = 5;
         int d = 1;
         if (dag.isReachable(s, d)) {
-            System.out.println("\nThere is a path from " + s +" to " + d);
+            System.out.println("\n\nThere is a path from " + s +" to " + d);
         } else {
             System.out.println("\nThere is no path from " + s +" to " + d);
         }
@@ -335,7 +401,6 @@ public class Graph {
         } else {
             System.out.println("\nGraph dag does not contain cycle");
         }
-
     }
 
 }

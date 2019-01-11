@@ -37,6 +37,8 @@ public class NumberIslandUnion {
         }
     }
 
+    // Time  : O(m * n)
+    // Space : O(m * n)
     int countIslands(int[][] M) {
         int nr = M.length;
         int nc = M[0].length;
@@ -82,13 +84,15 @@ public class NumberIslandUnion {
     }
 
     public static void main(String[] args) {
-        int M[][] = new int[][]{{1, 1, 0, 0, 0},
+        int M[][] = new int[][]{
+                {1, 1, 0, 0, 0},
                 {0, 1, 0, 0, 1},
                 {1, 0, 0, 1, 1},
                 {0, 0, 0, 0, 0},
                 {1, 0, 1, 0, 1}};
 
-        NumberIslandUnion union = new NumberIslandUnion(M.length * M[0].length);
+        NumberIslandUnion union
+                = new NumberIslandUnion(M.length * M[0].length);
 
         System.out.println("Number of islands is: "+ union.countIslands(M));
     }

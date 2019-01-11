@@ -26,7 +26,8 @@ import java.util.Arrays;
 // longest Decreasing subsequence starting from arr[i]. Finally, we need to return the
 // max value of lis[i] + lds[i] – 1 where i is from 0 to n-1
 public class LongestBitonicSubsequence {
-    // lbs() returns the length of the Longest Bitonic Subsequence in nums[] of size n.
+    // lbs() returns the length of the
+    // Longest Bitonic Subsequence in nums[] of size n.
     // The function mainly creates two temporary arrays
     // lis[] and lds[] and returns the maximum lis[i] + lds[i] - 1.
     //
@@ -38,7 +39,8 @@ public class LongestBitonicSubsequence {
     static int lbs(int[] nums) {
         int n = nums.length;
 
-        // Allocate memory for LIS[] and initialize LIS values as 1 for all indexes
+        // Allocate memory for LIS[] and initialize LIS values as
+        // 1 for all indexes
         int[] lis = new int[n];
         Arrays.fill(lis, 1);
 
@@ -53,7 +55,8 @@ public class LongestBitonicSubsequence {
             }
         }
 
-        // Allocate memory for LDS[] and initialize LDS values as 1 for all indexes
+        // Allocate memory for LDS[] and initialize
+        // LDS values as 1 for all indexes
         int[] lds = new int[n];
         Arrays.fill(lds, 1);
 
@@ -76,7 +79,8 @@ public class LongestBitonicSubsequence {
     }
 
     public static void main(String[] args) {
-        int[] nums = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+        int[] nums
+                = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
         System.out.println("Length of LBS is "+ lbs(nums));
     }
 }

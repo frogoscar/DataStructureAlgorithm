@@ -1,6 +1,6 @@
 package Algorithm.TwoPointersTech;
 
-// Given a sorted array A (sorted in ascending order),
+// Given a SORTED array A (sorted in ascending order),
 // find if there exists any pair of elements (A[i], A[j])
 // such that their sum is equal to val
 public class PairSum {
