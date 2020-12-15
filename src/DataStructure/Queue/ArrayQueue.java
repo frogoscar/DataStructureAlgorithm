@@ -5,7 +5,7 @@ public class ArrayQueue {
     int rear;
     int size;
     int capacity;
-    int array[];
+    int[] array;
 
     ArrayQueue(int capacity) {
         this.capacity = capacity;
@@ -23,19 +23,20 @@ public class ArrayQueue {
         return size == 0;
     }
 
-    void enqueue(int value) {
+    int enqueue(int value) {
         if (isFull()) {
             System.out.println("Queue is full, can not enqueue");
-            return;
+            return Integer.MIN_VALUE;
         }
         rear = (rear + 1) % capacity;
         array[rear] = value;
         size++;
+        return value;
     }
 
     int dequeue() {
         if (isEmpty()) {
-            System.out.println("Queue is empty");
+            System.out.println("Queue is empty, can not dequeue");
             return Integer.MIN_VALUE;
         }
         int value = array[front];
@@ -67,10 +68,16 @@ public class ArrayQueue {
     void printQueue() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
+            return;
         }
+        System.out.print("The Queue : ");
         for (int i = front; i <= rear; i++) {
             System.out.print(array[i] + " ");
         }
+        System.out.println();
+        System.out.println("Queue's size : " + getSize());
+        System.out.println("Queue's Front : " + getFront());
+        System.out.println("Queue's Rear : " + getRear());
         System.out.println();
     }
 
@@ -83,18 +90,15 @@ public class ArrayQueue {
         queue.enqueue(5);
         queue.enqueue(6);
 
-        System.out.println("Queue's Front : " + queue.getFront());
-        System.out.println("Queue's Rear : " + queue.getRear());
-
         queue.printQueue();
-        System.out.println("Queue's size : " + queue.getSize());
 
-        System.out.println(queue.dequeue() + " dequeued from Queue");
-        System.out.println();
+        System.out.println(queue.dequeue() + " is dequeued from Queue");
         queue.printQueue();
-        System.out.println("Queue's size : " + queue.getSize());
 
-        System.out.println("Queue's Front : " + queue.getFront());
-        System.out.println("Queue's Rear : " + queue.getRear());
+        System.out.println(queue.enqueue(7) + " is enqueued to Queue");
+        queue.printQueue();
+
+        System.out.println(queue.dequeue() + " is dequeued from Queue");
+        queue.printQueue();
     }
 }
